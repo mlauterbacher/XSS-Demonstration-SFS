@@ -1,8 +1,11 @@
 This is a simple guestbook, designed to demostrate XSS vulnerabilities.
 
-
 In case there are permissions missing for writing the "gb.txt", just
 elevate permissions of that file in your terminal.
+
+What's still missing:
+	CSS
+	Exploits
 
 Best, 
 Markus
