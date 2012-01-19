@@ -2,4 +2,4 @@
 *.pyc
 *.pyo
 *.project
-.project/
+.settings/
