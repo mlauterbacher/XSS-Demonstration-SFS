@@ -35,7 +35,7 @@ ob_start();
 $tpl = file_get_contents('template_index.html');
 
 echo '<div id="entries">' . "\n";
-$allEntries = $gb->getEntries();
+$allEntries = array_reverse($gb->getEntries());
 if (!empty($allEntries)) {
 	foreach($allEntries as $i => $e) {
 		echo "<div id=\"entry$i\">" . "\n";
@@ -57,6 +57,6 @@ if (!empty($allEntries)) {
 }
 echo '</div>' . "\n";
 
-$tpl = str_replace("{{body}}", ob_get_clean(), $tpl);
+$tpl = str_replace("{{entries}}", ob_get_clean(), $tpl);
 
 echo $tpl;

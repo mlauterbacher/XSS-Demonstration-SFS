@@ -5,22 +5,30 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 		<title>Bad Guestbook</title>
 	</head>
+	<link rel="stylesheet" type="text/css" href="style.css" />
 	<body>
 		
-{{body}}
+		<h1>Bad Guestbook</h1>
+		
+		<div id="gbwrapper">
+		
+{{entries}}
 
-	<form action="index.php" method="post">
-		<input type="hidden" name="action" value="new" />
-		<label for="sender">Name</label>
-		<input name="sender" placeholder="Tell us who you are" required />
-		<label for="text">Text</label>
-		<textarea placeholder="What's on your mind?" name="text" rows="8" cols="40"></textarea>
-		<input type="submit" name="submit" value="Post" />
-	</form>
+		<form action="index.php" method="post" id="newEntry">
+			<input type="hidden" name="action" value="new" />
+			<label for="sender">Name</label>
+			<input name="sender" placeholder="Tell us who you are" required />
+			<label for="text">Text</label>
+			<textarea placeholder="What's on your mind?" name="text" rows="8" cols="40"></textarea>
+			<input type="submit" name="submit" class="button" value="Post" />
+		</form>
+		
+		
+	</div> <!-- gbwrapper -->
 	
-	<form action="index.php" method="post">
+	<form action="index.php" method="post" id="truncate">
 		<input type="hidden" name="action" value="clean" />
-		<input type="submit" name="submit" value="Truncate Guestbook" />
+		<input type="submit" class="button" name="submit" value="Truncate Guestbook" />
 	</form>
 
 	</body>
