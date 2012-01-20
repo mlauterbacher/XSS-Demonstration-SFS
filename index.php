@@ -8,6 +8,7 @@ date_default_timezone_set('Europe/Berlin');
 error_reporting(E_ALL);
 require_once 'guestbook.php';
 require_once 'gbentry.php';
+session_start();
 
 #######
 # request treatment
@@ -32,7 +33,6 @@ switch(@$_POST['action']) {
 ########
 
 ob_start();
-$tpl = file_get_contents('template_index.html');
 
 echo '<div id="entries">' . "\n";
 $allEntries = array_reverse($gb->getEntries());
@@ -57,6 +57,6 @@ if (!empty($allEntries)) {
 }
 echo '</div>' . "\n";
 
+$tpl = file_get_contents('template_index.html');
 $tpl = str_replace("{{entries}}", ob_get_clean(), $tpl);
-
 echo $tpl;
