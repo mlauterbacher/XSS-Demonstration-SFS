@@ -15,6 +15,7 @@ session_start();
 #######
 
 $gb = new Guestbook('gb.txt');
+$message = '';
 
 switch(@$_POST['action']) {
 	case 'new':
@@ -24,8 +25,29 @@ switch(@$_POST['action']) {
 		$gb->addEntry($ne)->save();
 		break;
 	case 'clean':
-		$gb->clean();
+        if (@$_SESSION['auth'] === true) {
+            $message = 'All entries deleted.';
+            $gb->clean();
+        } else {
+            $message = 'dafuq?';
+        }
 		break;
+
+    case 'login':
+        if (@$_POST['password'] == 'demo') {
+            $_SESSION['auth'] = true;
+            $_SESSION['username'] = @$_POST['username'];
+            $message = 'Logged in as ' . @$_POST['username'] . '.';
+        } else {
+            $message = 'Login failed.';
+        }
+        break;
+
+    case 'logout':
+        $message = 'Bye.';
+        session_destroy();
+        session_start();
+        break;
 }
 
 ########
@@ -58,5 +80,18 @@ if (!empty($allEntries)) {
 echo '</div>' . "\n";
 
 $tpl = file_get_contents('template_index.html');
+
 $tpl = str_replace("{{entries}}", ob_get_clean(), $tpl);
+$tpl = str_replace("{{form}}", file_get_contents('form.html'), $tpl);
+
+if (@$_SESSION['auth'] === true) {
+    $usercp = file_get_contents('admin.html');
+} else {
+    $usercp = file_get_contents('anonymous.html');
+}
+
+$tpl = str_replace("{{usercp}}", $usercp, $tpl);
+$tpl = str_replace("{{message}}", $message, $tpl);
+$tpl = str_replace("{{username}}", @$_SESSION['username'], $tpl);
+
 echo $tpl;

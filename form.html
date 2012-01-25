@@ -1,0 +1,8 @@
+<form action="index.php" method="post" id="newEntry">
+    <input type="hidden" name="action" value="new" />
+    <label for="sender">Name</label>
+    <input id="sender" name="sender" placeholder="Tell us who you are" value="{{username}}" required />
+    <label for="text">Text</label>
+    <textarea id="text" placeholder="What's on your mind?" name="text" rows="8" cols="40"></textarea>
+    <input type="submit" name="submit" class="button" value="Post" />
+</form>

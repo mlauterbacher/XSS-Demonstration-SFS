@@ -8,28 +8,15 @@
 	<link rel="stylesheet" type="text/css" href="style.css" />
 	<body>
 		
-		<h1>Bad Guestbook</h1>
-		
-		<div id="gbwrapper">
-		
-{{entries}}
-
-		<form action="index.php" method="post" id="newEntry">
-			<input type="hidden" name="action" value="new" />
-			<label for="sender">Name</label>
-			<input name="sender" placeholder="Tell us who you are" required />
-			<label for="text">Text</label>
-			<textarea placeholder="What's on your mind?" name="text" rows="8" cols="40"></textarea>
-			<input type="submit" name="submit" class="button" value="Post" />
-		</form>
-		
-		
-	</div> <!-- gbwrapper -->
+		<h1><a href="index.php" title="Bad Guestbook">Bad Guestbook</a></h1>
+        
+        <p>{{message}}</p>
+		<div id="gbwrapper">            
+            {{entries}}
+            {{form}}            
+        </div> <!-- gbwrapper -->
 	
-	<form action="index.php" method="post" id="truncate">
-		<input type="hidden" name="action" value="clean" />
-		<input type="submit" class="button" name="submit" value="Truncate Guestbook" />
-	</form>
+	{{usercp}}
 
 	</body>
 </html>
