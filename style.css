@@ -3,7 +3,7 @@ html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, font, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
+small, strike, sub, sup, tt, var,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td {
@@ -45,10 +45,7 @@ q:before, q:after {
 blockquote, q {
     quotes: "" "";
 }
-
-
 /* actually css starts here */
-
 html {
 	font-family: sans-serif;
 	background-color: #333;
@@ -56,6 +53,17 @@ html {
 
 body {
 	color: #333;
+	background: #333;
+}
+
+a:link, a:visited {
+    color: #ccc;
+    text-decoration: none;
+}
+
+a:active, a:hover {
+    color: #fff;
+    text-decoration: underline;
 }
 
 #gbwrapper {
@@ -64,10 +72,9 @@ body {
 }
 
 h1 {
-	background-color: #333;
-	color:white;
+	color: white;
 	font-size: 2em;
-	padding:30px;
+	padding: 30px 30px 0 30px;
 }
 
 label {
@@ -80,15 +87,31 @@ label {
 	display: block;
 }
 
+.box {
+    position: relative;
+    border: 3px solid #222;
+    background: #666;
+    color: #fff;
+    width: 500px;
+    padding: 10px;
+    margin: 15px 30px;
+}
+
+.box div#caption {
+    position: absolute;
+    top: -4px;
+    right: -3px;
+    color: #222;
+    font-size: 30px;
+}
+
+div#usercp form {
+    display: inline-block;
+}
 
 form#newEntry {
 	border-left:4px solid orange;
 	padding-left: 10px;
-}
-
-form#truncate{
-	background-color: #333;
-	padding: 30px;
 }
 
 #entries > div {

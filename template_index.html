@@ -1,22 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-		<title>Bad Guestbook</title>
-	</head>
-	<link rel="stylesheet" type="text/css" href="style.css" />
-	<body>
-		
-		<h1><a href="index.php" title="Bad Guestbook">Bad Guestbook</a></h1>
-        
-        <p>{{message}}</p>
-		<div id="gbwrapper">            
-            {{entries}}
-            {{form}}            
-        </div> <!-- gbwrapper -->
-	
-	{{usercp}}
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Bad Guestbook</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
 
-	</body>
+<body>    
+    <h1><a href="index.php" title="Bad Guestbook">Bad Guestbook</a></h1>
+
+    {{message}}
+    
+    <div id="gbwrapper">            
+        {{entries}}
+        {{form}}            
+    </div> <!-- gbwrapper -->
+    
+    <div id="usercp" class="box">
+        <div id="caption">ADMINISTRATION</div>
+        {{usercp}}
+    </div>
+</body>
 </html>

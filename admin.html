@@ -1,9 +1,9 @@
-Logged in as {{username}}.
+<p>Logged in as <strong>{{username}}</strong>.</p>
 <form action="index.php" method="post" id="truncate">
     <input type="hidden" name="action" value="clean" />
     <input type="submit" class="button" name="submit" value="Truncate Guestbook" />
 </form>
-<form action="index.php" method="post">
+<form action="index.php" method="post" id="logout">
     <input type="hidden" name="action" value="logout" />
     <input type="submit" class="button" name="submit" value="Logout" />
 </form>

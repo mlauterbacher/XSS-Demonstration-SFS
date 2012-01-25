@@ -90,6 +90,10 @@ if (@$_SESSION['auth'] === true) {
     $usercp = file_get_contents('anonymous.html');
 }
 
+if (!empty($message)) {
+    $message = '<p id="message" class="box">' . $message . '</p>';
+}
+
 $tpl = str_replace("{{usercp}}", $usercp, $tpl);
 $tpl = str_replace("{{message}}", $message, $tpl);
 $tpl = str_replace("{{username}}", @$_SESSION['username'], $tpl);
